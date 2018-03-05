@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+
+</head>
+<body>
+    <a herf="javascript:void(0)" class=" btn btn-success" id="button-product">View all</a>
+
+
+    <div id="content-page">
+
+    </div>
+    <table class="table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+
+        </tr>
+        <tr ng-repeat="p in products">
+            <td>{{c.Id}}</td>
+            <td>{{c.Name}}</td>
+
+        </tr>
+
+
+    </table>
+    <script>
+    $(document).ready(function () {
+        $("#button-product").click(function () {
+            $("#content-page").html("<h1>loading......</h1>");
+            $.get("Home/ListProduct", function (res) {
+                $("#content-page").html(res);
+
+                $http.get("Products/Index").then(function (res) {
+
+                }); 
+
+
+            });
+        });
+
+    });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+﻿<a herf="javascript:void(0)" class=" btn btn-success" id="button-product">View all</a>
+
+
+  <div id="content-page">
+
+</div>
+<script>
+    $(document).ready(function () {
+        $("#button-product").click(function () {
+            $("#content-page").html("<h1>loading......</h1>");
+            $.get("Products/Index", function (res) {
+                $("#content-page").html(res);
+
+            });
+        });
+      
+    });
+
+</script>
